@@ -87,6 +87,7 @@ namespace onut
 
     void WindowSDL2::setCaption(const std::string& newName)
     {
+        SDL_SetWindowTitle(m_pWindow, newName.c_str());
     }
 
     SDL_Window* WindowSDL2::getSDLWindow() const
