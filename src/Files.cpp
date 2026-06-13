@@ -212,28 +212,41 @@ namespace onut
         return std::move(str);
     }
 
-    /*
+#if !defined(WIN32)
     std::string showOpenDialog(const std::string& caption, const FileTypes& extensions, const std::string& defaultFilename)
     {
-        std::string pattern = "{";
+        const int numExt = (int)extensions.size();
+        const char* singleDesc = (numExt == 1 ? extensions[0].typeName.c_str() : NULL);
+        const char** patterns = NULL;
+        if (numExt > 0)
+        {
+            patterns = new const char*[numExt];
+            for (int i = 0; i < numExt; ++i)
+                patterns[i] = extensions[i].extension.c_str();
+        }
 
-        pattern += "}";
         auto pPath = tinyfd_openFileDialog(
-            "Browse Game",
+            caption.c_str(),
             defaultFilename.c_str(),
-            (int)extensions.size(),
-            NULL,
-            NULL,
+            numExt,
+            patterns,
+            singleDesc,
             0);
+
+        if (patterns)
+            delete patterns;
         if (!pPath) return "";
         return pPath;
     }
 
+/*
     std::string showSaveAsDialog(const std::string& caption, const FileTypes& extensions, const std::string& defaultFilename)
     {
         return "";
     }
-    */
+*/
+#endif
+
     std::string showOpenFolderDialog(const std::string& caption, const std::string& defaultPath)
     {
         auto pPath = tinyfd_selectFolderDialog(caption.c_str(), defaultPath.c_str());
