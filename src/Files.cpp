@@ -212,7 +212,6 @@ namespace onut
         return std::move(str);
     }
 
-#if !defined(WIN32)
     std::string showOpenDialog(const std::string& caption, const FileTypes& extensions, const std::string& defaultFilename)
     {
         const int numExt = (int)extensions.size();
@@ -245,7 +244,6 @@ namespace onut
         return "";
     }
 */
-#endif
 
     std::string showOpenFolderDialog(const std::string& caption, const std::string& defaultPath)
     {
@@ -287,6 +285,7 @@ namespace onut
         return found;
     }
 
+/*
     std::string showOpenDialog(const std::string& caption, const FileTypes& extensions, const std::string& defaultFilename)
     {
         auto windowHandle = oWindow->getHandle();
@@ -341,6 +340,7 @@ namespace onut
 
         return ofn.lpstrFile;
     }
+*/
 
     std::string showSaveAsDialog(const std::string& caption, const FileTypes& extensions, const std::string& defaultFilename)
     {
