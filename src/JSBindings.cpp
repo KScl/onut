@@ -1,7 +1,7 @@
 // Public includes
 #include <onut/AudioEngine.h>
 #include <onut/Axis.h>
-#include <onut/Deferred.h>
+//#include <onut/Deferred.h>
 #include <onut/Strings.h>
 
 // Private includes
@@ -2701,6 +2701,7 @@ namespace onut
             duk_set_prototype(ctx, -2);
         }
         
+#if 0
         void newModel(duk_context* ctx, const OModelRef& pModel)
         {
             duk_push_object(ctx);
@@ -2710,6 +2711,7 @@ namespace onut
             duk_push_heapptr(ctx, pModelPrototype);
             duk_set_prototype(ctx, -2);
         }
+#endif
         
         void newFont(duk_context* ctx, const OFontRef& pFont)
         {
@@ -3133,6 +3135,7 @@ namespace onut
             duk_put_global_string(ctx, "Texture");
         }
 
+#if 0
         static void createModelBindings()
         {
             auto ctx = pContext;
@@ -3339,6 +3342,7 @@ namespace onut
 
             duk_put_global_string(ctx, "Model");
         }
+#endif
 
         static void createFontBindings()
         {
@@ -7774,7 +7778,7 @@ namespace onut
         static void createResourceBindings()
         {
             createTextureBindings();
-            createModelBindings();
+            //createModelBindings();
             createFontBindings();
             createShaderBindings();
             createMusicBindings();
@@ -9442,6 +9446,7 @@ namespace onut
             }
             JS_INTERFACE_END("Renderer");
 
+#if 0
             // oDeferred
             JS_INTERFACE_BEGIN();
             {
@@ -9615,7 +9620,7 @@ namespace onut
                 JS_INTERFACE_FUNCTION_END("getAmbientOcclusion", 0);
             }
             JS_INTERFACE_END("Deferred");
-
+#endif
 
             // oSpriteBatch
             JS_INTERFACE_BEGIN();
@@ -10470,6 +10475,7 @@ namespace onut
                 }
             }
             JS_GLOBAL_FUNCTION_END("getTexture", 2);
+#if 0
             JS_GLOBAL_FUNCTION_BEGIN
             {
                 auto model = OGetModel(JS_STRING(0));
@@ -10478,6 +10484,7 @@ namespace onut
                 return 1;
             }
             JS_GLOBAL_FUNCTION_END("getModel", 1);
+#endif
             JS_GLOBAL_FUNCTION_BEGIN
             {
                 newFont(ctx, OGetFont(JS_STRING(0)));
@@ -11021,6 +11028,7 @@ namespace onut
                 JS_ENUM("RGB10A2", RenderTargetFormat::RGB10A2);
             }
             JS_INTERFACE_END("RenderTargetFormat");
+#if 0
             JS_INTERFACE_BEGIN();
             {
                 JS_ENUM("LOW", Deferred::SSAOQuality::LOW);
@@ -11028,6 +11036,7 @@ namespace onut
                 JS_ENUM("HIGH", Deferred::SSAOQuality::HIGH);
             }
             JS_INTERFACE_END("SSAOQuality");
+#endif
             JS_INTERFACE_BEGIN();
             {
                 JS_ENUM("NONE", WriteFunc::None);

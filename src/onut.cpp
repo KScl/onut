@@ -3,7 +3,7 @@
 #include <onut/AudioEngine.h>
 //#include <onut/Cloud.h>
 #include <onut/ContentManager.h>
-#include <onut/Deferred.h>
+//#include <onut/Deferred.h>
 #include <onut/Dispatcher.h>
 #include <onut/Font.h>
 #include <onut/GamePad.h>
@@ -137,7 +137,7 @@ namespace onut
         }
 
         // Deferred
-        if (!oDeferred) oDeferred = ODeferred::create();
+        //if (!oDeferred) oDeferred = ODeferred::create();
 
         // SpriteBatch
         if (!oSpriteBatch) oSpriteBatch = SpriteBatch::create();
@@ -231,7 +231,7 @@ namespace onut
         oPrimitiveBatch = nullptr;
         oPrimitiveBatch3D = nullptr;
         oSpriteBatch = nullptr;
-        oDeferred = nullptr;
+        //oDeferred = nullptr;
         oRenderer = nullptr;
         oWindow = nullptr;
         oSettings = nullptr;

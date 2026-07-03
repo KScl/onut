@@ -14,7 +14,7 @@
 #include <onut/IndexBuffer.h>
 #include <onut/Input.h>
 #include <onut/Log.h>
-#include <onut/Model.h>
+//#include <onut/Model.h>
 #include <onut/Music.h>
 #include <onut/onut.h>
 #include <onut/ParticleSystem.h>
@@ -184,7 +184,7 @@ namespace onut
         void newMatrix(duk_context* ctx, const Matrix& val);
 
         void newTexture(duk_context* ctx, const OTextureRef& pTexture);
-        void newModel(duk_context* ctx, const OModelRef& pModel);
+        //void newModel(duk_context* ctx, const OModelRef& pModel);
         void newFont(duk_context* ctx, const OFontRef& pFont);
         void newShader(duk_context* ctx, const OShaderRef& pShader);
         void newMusic(duk_context* ctx, const OMusicRef& pMusic);

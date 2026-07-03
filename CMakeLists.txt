@@ -168,7 +168,6 @@ list(APPEND src_files
     src/Crypto.cpp
     src/CSV.cpp
     src/Curve.cpp 
-    src/Deferred.cpp
     src/Dialogs.cpp
     src/Dispatcher.cpp 
     src/duktape/duktape.c
@@ -193,7 +192,6 @@ list(APPEND src_files
     src/Log.cpp 
     src/Matrix.cpp 
     src/micropather.cpp
-    src/Model.cpp 
     src/Music.cpp
     src/MusicOGG.cpp
     src/onut.cpp 
@@ -331,11 +329,7 @@ endif()
 
 # assimp
 set(ZLIB_USE_STATIC_LIBS ON)
-set(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
-set(ASSIMP_BUILD_TESTS OFF)
 set(BUILD_SHARED_LIBS OFF)
-add_subdirectory(./thirdparty/assimp/)
-list(APPEND libs assimp)
 
 # Include libs and includes
 target_include_directories(libonut ${includes})
